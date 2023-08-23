@@ -14,7 +14,7 @@ export default function NavBar() {
         </NavbarBrand>
         <Input
           width="100%"
-          placeholder="Type to search..."
+          placeholder="Busque un producto..."
           size="lg"
           endContent={<SearchIcon size={18} width={20} height={20} />}
           type="search"
