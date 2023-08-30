@@ -12,13 +12,16 @@ export default function NavBar() {
           <AcmeLogo />
           <p className="hidden sm:block font-bold text-inherit">ACME</p>
         </NavbarBrand>
-        <Input
-          width="100%"
-          placeholder="Busque un producto..."
-          size="lg"
-          endContent={<SearchIcon size={18} width={20} height={20} />}
-          type="search"
-        />
+        <form action="/items">
+          <Input
+            width="100%"
+            placeholder="Busque un producto..."
+            size="lg"
+            endContent={<SearchIcon size={18} width={20} height={20} />}
+            type="search"
+            name="search"
+          />
+        </form>
       </NavbarContent>
     </Navbar>
   );
