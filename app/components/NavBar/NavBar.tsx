@@ -12,7 +12,7 @@ export default function NavBar() {
           <AcmeLogo />
           <p className="hidden sm:block font-bold text-inherit">ACME</p>
         </NavbarBrand>
-        <form action="/items">
+        <form action="/items" className="w-full">
           <Input
             width="100%"
             placeholder="Busque un producto..."
