@@ -10,7 +10,7 @@ const PORT = 3008;
 
 app.use("/api/items", getItemsByCateg)
 
-app.use("/items", getItemById)
+app.use("/api/items", getItemById)
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
