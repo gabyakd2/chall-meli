@@ -1,10 +1,12 @@
 "use client";
 import React from "react";
 import { Navbar, NavbarBrand, NavbarContent, Input } from "@nextui-org/react";
-// import {AcmeLogo} from "./AcmeLogo.jsx";
 import { SearchIcon, AcmeLogo } from "../../icons";
+import { useFetchItems } from "@/app/hooks";
 
 export default function NavBar() {
+  const {data} = useFetchItems('iphone')
+  console.log(data)
   return (
     <Navbar isBordered>
       <NavbarContent justify="start">
