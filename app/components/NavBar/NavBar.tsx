@@ -3,13 +3,12 @@ import React, { useState } from "react";
 import { Navbar, NavbarBrand, NavbarContent, Input } from "@nextui-org/react";
 import { SearchIcon, AcmeLogo } from "../../icons";
 import { useFetchItems } from "@/app/hooks";
+import { useItemsStore } from "@/app/store/itemsStore";
 
 export default function NavBar() {
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const { data } = useFetchItems(searchQuery);
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  };
+  const { getItems } = useItemsStore();
+  const { data } = getItems(searchQuery);
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault()
     setSearchQuery(e.target.value);
@@ -22,7 +21,7 @@ export default function NavBar() {
           <AcmeLogo />
           <p className="hidden sm:block font-bold text-inherit">ACME</p>
         </NavbarBrand>
-        <form action="/items" className="w-full" onSubmit={handleSearch}>
+        <form action="/items" className="w-full">
           <Input
             width="100%"
             placeholder="Busque un producto..."
