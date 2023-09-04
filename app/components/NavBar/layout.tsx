@@ -3,17 +3,23 @@ import React, { useState } from "react";
 import { Navbar, NavbarBrand, NavbarContent, Input } from "@nextui-org/react";
 import { SearchIcon, AcmeLogo } from "../../icons";
 import { useFetchItems } from "@/app/hooks";
-import { useItemsStore } from "@/app/store/itemsStore";
+import { useItemsQuery } from "@/app/store/itemsStore";
 
-export default function NavBar() {
+export default function LayoutNavBar() {
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const { getItems } = useItemsStore();
-  const { data } = getItems(searchQuery);
+  const setItemInStore = useItemsQuery(state => state.setSearchQueryStore);
+  
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault()
-    setSearchQuery(e.target.value);
-  };
-  console.log(data);
+    let query = e.target.value;
+    setSearchQuery(query);
+  }
+
+  const { data } = useFetchItems(searchQuery);
+  console.log(data)
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // setItemInStore(data);
+  }
   return (
     <Navbar isBordered>
       <NavbarContent justify="start">
@@ -21,7 +27,7 @@ export default function NavBar() {
           <AcmeLogo />
           <p className="hidden sm:block font-bold text-inherit">ACME</p>
         </NavbarBrand>
-        <form action="/items" className="w-full">
+        <form action="/items" className="w-full" onSubmit={handleSubmit}>
           <Input
             width="100%"
             placeholder="Busque un producto..."

@@ -1,12 +1,12 @@
 import {create} from "zustand";
-import { useFetchItems } from "../hooks";
+import { ResultItem } from "../items/types/typeResult";
 
-type itemsSearchedState = {
-  resultsOfSearch: string[]
-  getItems: any
-}
+type ItemsStore = {
+  searchQueryStore: ResultItem;
+  setSearchQueryStore: (query: ResultItem) => void;
+};
 
-export const useItemsStore = create<itemsSearchedState>((set) => ({
-  resultsOfSearch: [],
-  getItems: useFetchItems
-}))
+export const useItemsQuery = create<ItemsStore>((set) => ({
+  searchQueryStore: [],
+  setSearchQueryStore: (query) => set({ searchQueryStore: query })
+}));

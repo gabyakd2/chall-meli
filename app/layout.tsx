@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Providers, queryClient } from "./services";
 import { QueryClientProvider } from "@tanstack/react-query";
+import LayoutNavBar from "./components/NavBar/layout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <QueryClientProvider client={queryClient}>
+          <LayoutNavBar />
           <Providers>{children}</Providers>
         </QueryClientProvider>
       </body>
