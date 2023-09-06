@@ -10,3 +10,12 @@ export const useItemsQuery = create<ItemsStore>((set) => ({
   searchQueryStore: [],
   setSearchQueryStore: (query) => set({ searchQueryStore: query })
 }));
+
+type SearchQueryStore = {
+  searchQuery: string;
+  setSearchQuery: (query: string) => void;
+}
+
+export const useSearchQuery = () => {
+  useSearchQuery
+}
