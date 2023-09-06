@@ -16,6 +16,7 @@ type SearchQueryStore = {
   setSearchQuery: (query: string) => void;
 }
 
-export const useSearchQuery = () => {
-  useSearchQuery
-}
+export const useSearchQuery = create<SearchQueryStore>((set) => ({
+  searchQuery: "",
+  setSearchQuery: (query: string) => set({ searchQuery: query })
+}))
