@@ -1,14 +1,11 @@
 'use client'
 import React from 'react'
 import { useSearchQuery } from '../store/itemsStore'
-import { getLocalStorageItem, useFetchItems } from '../hooks'
+import { useFetchItems } from '../hooks'
 
-function ItemPage() {
-  // const { searchQuery } = useSearchQuery()
-  const globalState = getLocalStorageItem('globalState')
-  const { searchQuery } = globalState || {searchQuery: ''}
-  const {data} = useFetchItems(searchQuery)
-  console.log(data?.results)
+function ItemPage({searchParams}: {searchParams: {search:string}}) {
+  const {search} = searchParams
+  const {data} = useFetchItems(search)
   return (
     <div>ItemPage</div>
   )

@@ -1,22 +1,17 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Navbar, NavbarBrand, NavbarContent, Input } from "@nextui-org/react";
 import { SearchIcon, AcmeLogo } from "../../icons";
 import { useSearchQuery } from "@/app/store/itemsStore";
-import { setLocalStorageItem } from "@/app/hooks";
 
 export default function LayoutNavBar() {
   const { searchQuery, setSearchQuery } = useSearchQuery()
-  
-  useEffect(() => {
-    setLocalStorageItem('searchQuery', {searchQuery});
-  },[searchQuery])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let query = e.target.value;
     setSearchQuery(query);
   }
-// console.log(searchQuery)
+
   return (
     <Navbar isBordered>
       <NavbarContent justify="start">
