@@ -4,7 +4,7 @@ import Image from "next/image";
 
 function CardItem({ image, price, title, location }: any) {
   return (
-    <Card className="max-w-[1000px]">
+    <Card className="max-w-[1000px] w-full">
       <CardBody className="flex flex-row justify-between items-center">
         <div className="flex items-center">
           <Image src={image} alt="Image of product" width="200" height="200" />
