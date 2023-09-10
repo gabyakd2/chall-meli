@@ -1,8 +1,10 @@
 import React from "react";
 import { Card, CardBody } from "@nextui-org/react";
 import Image from "next/image";
+import { Item } from "../../model/itemProp";
 
-function CardItem({ image, price, title, location }: any) {
+
+function CardItem({ image, price, title, location }: Item) {
   return (
     <Card className="max-w-[1000px] w-full">
       <CardBody className="flex flex-row justify-between items-center">

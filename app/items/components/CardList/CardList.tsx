@@ -1,6 +1,6 @@
 import React from 'react'
 import CardItem from '../CardItem/CardItem'
-import { DataItem, Result } from '../CardItem/dataProp'
+import { DataItem, Result } from '../../model/dataProp'
 
 interface Props {
   data: DataItem
