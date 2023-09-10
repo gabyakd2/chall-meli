@@ -1,12 +1,17 @@
 import React from 'react'
 import CardItem from '../CardItem/CardItem'
+import { DataItem, Result } from '../CardItem/dataProp'
 
-function CardList({data}: any) {
-  // console.log(data.results)
+interface Props {
+  data: DataItem
+}
+
+function CardList({data}: Props) {
+  // console.log(data)
   return (
     <div className="flex items-center justify-center flex-col">
       {
-        data && data.results.map((product: any) => (
+        data && data.results.map((product: Result) => (
           <CardItem 
             image={product.thumbnail}
             price={product.price}
