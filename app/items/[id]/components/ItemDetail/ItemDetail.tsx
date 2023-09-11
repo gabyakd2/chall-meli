@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 
-function ItemDetail() {
+function ItemDetail({data}: any) {
   return (
     <div>
       <Image src='hola' alt='foto'/>

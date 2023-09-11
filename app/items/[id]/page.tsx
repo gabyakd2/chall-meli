@@ -10,7 +10,7 @@ function DetailPage() {
   const {data} = useFetchDescriptions(idItem)
   return (
     <div>
-      <ItemDetail />
+      <ItemDetail data={data}/>
     </div>
   )
 }
