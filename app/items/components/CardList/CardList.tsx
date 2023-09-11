@@ -10,10 +10,14 @@ interface Props {
 function CardList({ data }: Props) {
   // console.log(data)
   return (
-    <div className="flex items-center justify-center flex-col">
+    <div>
       {data &&
         data.results.map((product: Result) => (
-          <Link href={`/items/${product.id}`} key={product.id}>
+          <Link
+            href={`/items/${product.id}`}
+            key={product.id}
+            className="w-full flex items-center justify-center flex-col "
+          >
             <CardItem
               image={product.thumbnail}
               price={product.price}
