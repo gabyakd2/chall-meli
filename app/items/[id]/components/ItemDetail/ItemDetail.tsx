@@ -1,7 +1,13 @@
+import { ItemDetail } from "@/app/items/model/detailItem";
 import Image from "next/image";
 import React from "react";
 
-function ItemDetail({ data }: any) {
+interface Props {
+  data: ItemDetail
+}
+
+function ItemDetail({ data }: Props) {
+  console.log(data)
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="flex w-full justify-evenly">
@@ -12,9 +18,9 @@ function ItemDetail({ data }: any) {
           height="400"
         />
         <div className="flex flex-col">
-          <p>Status</p>
-          <p>Titulo</p>
-          <p>Precio</p>
+          <p>{data?.sold_quantity} vendidos</p>
+          <p>{data?.title}</p>
+          <p>{data?.price}</p>
           <button>comprar</button>
         </div>
       </div>
