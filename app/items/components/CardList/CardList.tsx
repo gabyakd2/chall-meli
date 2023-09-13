@@ -2,22 +2,22 @@ import React, { useState } from "react";
 import CardItem from "../CardItem/CardItem";
 import { DataItem, Result } from "../../model/dataProp";
 import Link from "next/link";
-import Pagination from "../Pagination/Pagination";
+import NavPagination from "../NavPagination/NavPagination";
 
 interface Props {
   data: DataItem;
 }
 
 function CardList({ data }: Props) {
-  const [currentPage, setCurrentPage] = useState<number>(1)
-  const [itemsPerPage, setItemsPerPage] = useState<number>(4)
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [itemsPerPage, setItemsPerPage] = useState<number>(4);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = data.results.slice(indexOfFirstItem, indexOfLastItem);
 
   const paginated = (pageNumber: number) => {
-    setCurrentPage(pageNumber)
-  }
+    setCurrentPage(pageNumber);
+  };
   // console.log(data)
   return (
     <div>
@@ -36,7 +36,11 @@ function CardList({ data }: Props) {
             />
           </Link>
         ))}
-        <Pagination />
+      <NavPagination
+        paginated={paginated}
+        data={data}
+        itemsPerPage={itemsPerPage}
+      />
     </div>
   );
 }
