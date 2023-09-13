@@ -13,20 +13,20 @@ function CardList({ data }: Props) {
   const [itemsPerPage, setItemsPerPage] = useState<number>(4);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = data.results.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = data?.results.slice(indexOfFirstItem, indexOfLastItem);
 
   const paginated = (pageNumber: number) => {
     setCurrentPage(pageNumber);
   };
   // console.log(data)
   return (
-    <div>
+    <div className="flex items-center justify-center flex-col">
       {data &&
-        currentItems.map((product: Result) => (
+        currentItems?.map((product: Result) => (
           <Link
             href={`/items/${product.id}`}
             key={product.id}
-            className="w-full flex items-center justify-center flex-col "
+            className="w-full flex items-center justify-center flex-col"
           >
             <CardItem
               image={product.thumbnail}
@@ -36,11 +36,13 @@ function CardList({ data }: Props) {
             />
           </Link>
         ))}
-      <NavPagination
-        paginated={paginated}
-        data={data}
-        itemsPerPage={itemsPerPage}
-      />
+      <div className="my-10">
+        <NavPagination
+          paginated={paginated}
+          data={data}
+          itemsPerPage={itemsPerPage}
+        />
+      </div>
     </div>
   );
 }
