@@ -40,7 +40,7 @@ function ItemDetail({ data }: Props) {
       <div className="ml-10 mt-14 mx-auto w-[800px]">
         <p className="font-bold text-3xl mb-6">Descripción del producto</p>
         <div className="flex flex-wrap nowrap">
-          {descriptionItem.map(({ name, value }: Description) => (
+          {descriptionItem?.map(({ name, value }: Description) => (
             <p className="text-default-400">
               <span className="font-bold">{name}</span>: {value},{" "}
             </p>
