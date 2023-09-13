@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { useFetchItems } from '../hooks'
-import CardList from './components/CardList/CardList'
+import {CardList} from './components/index'
 
 function ItemPage({searchParams}: {searchParams: {search:string}}) {
   const {search} = searchParams

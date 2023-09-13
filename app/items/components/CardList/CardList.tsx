@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import CardItem from "../CardItem/CardItem";
 import { DataItem, Result } from "../../model/dataProp";
 import Link from "next/link";
-import NavPagination from "../NavPagination/NavPagination";
-
+import {CardItem, NavPagination, Loading} from "../index";
 interface Props {
   data: DataItem;
 }
@@ -18,11 +16,10 @@ function CardList({ data }: Props) {
   const paginated = (pageNumber: number) => {
     setCurrentPage(pageNumber);
   };
-  // console.log(data)
   return (
     <div className="flex items-center justify-center flex-col">
-      {data &&
-        currentItems?.map((product: Result) => (
+      {currentItems ? (
+        currentItems.map((product: Result) => (
           <Link
             href={`/items/${product.id}`}
             key={product.id}
@@ -35,7 +32,12 @@ function CardList({ data }: Props) {
               location={product.address.state_name}
             />
           </Link>
-        ))}
+        ))
+      ) : (
+        <div className="w-full flex items-center justify-center flex-col">
+          <Loading />
+        </div>
+      )}
       <div className="my-10">
         <NavPagination
           paginated={paginated}
