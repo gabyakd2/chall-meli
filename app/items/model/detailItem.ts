@@ -1,4 +1,4 @@
-export interface ItemDetail {
+export interface ItemDetails {
   id: string
   site_id: string
   title: string

@@ -1,10 +1,10 @@
-import { ItemDetail } from "@/app/items/model/detailItem";
+import { ItemDetails } from "@/app/items/model/detailItem";
 import Image from "next/image";
 import React from "react";
 import { Button } from "@nextui-org/react";
 
 interface Props {
-  data: ItemDetail;
+  data: ItemDetails;
 }
 
 interface Description {
@@ -13,16 +13,16 @@ interface Description {
 }
 
 function ItemDetail({ data }: Props) {
-  const descriptionItem: Description[] = data?.attributes.map((objeto) => ({
-    name: String(objeto.name),
-    value: String(objeto.value_name),
+  const descriptionItem: Description[] = data?.attributes.map((item) => ({
+    name: String(item.name),
+    value: String(item.value_name),
   }));
   return (
     <div className="flex flex-col justify-center items-center w-full">
       <div className="flex w-full justify-between">
         <Image
           src={data?.pictures[0]?.url}
-          alt="foto"
+          alt="Image Item"
           width="400"
           height="400"
         />
