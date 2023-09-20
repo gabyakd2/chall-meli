@@ -17,7 +17,7 @@ function CardList({ data }: Props) {
     setCurrentPage(pageNumber);
   };
   return (
-    <div className="flex items-center justify-center flex-col">
+    <div className="flex items-center justify-center flex-col mx-auto w-3/5 max-w-3xl">
       {currentItems ? (
         currentItems.map((product: Result) => (
           <Link
